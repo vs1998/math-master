@@ -1,0 +1,97 @@
+/* Color Palette
+#ffcdb2
+#ffb4a2
+#e5989b
+#b5838d
+#6d6875
+*/
+:root {
+  --bg-color: #fff3cd;
+  --font-color: #4d3e3e;
+  --button-color: #ffc38b;
+  --button-color-hover: #ff926b;
+}
+
+
+html, body {
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 0;
+}
+
+li {
+  display: inline-block
+}
+
+#task {
+  text-align: center;
+  font-size: 4em;
+}
+
+.button {
+  display: inline-block;
+  padding: 5px;
+  background-color: var(--button-color);
+  width: 120px;
+  text-align: center;
+  margin: 5px 20px;
+  border-radius: 15px;
+  border-color: var(--font-color);
+  border-style: solid;
+  border-width: 5px;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--button-color-hover)
+}
+
+.button.hidden {
+  display: none
+}
+
+.box {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.box div p {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5em
+}
+
+.box div {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+#main-app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#timer {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#new-game {
+  width: 220px;
+}
+
+#new-game p {
+  margin: 5px;
+  font-size: 1.3em;
+}
