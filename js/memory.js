@@ -6,72 +6,45 @@ const EMOJIS = Object.freeze([
   "🏐", "🏉", "🎾", "🥏", "🎱", "🏓", "🏸"
 ])
 
-function generateRandomMatrix(source, scale) {
-  matrix = Array(scale).fill().map(()=>Array(scale).fill())
-  list = _.shuffle(source).slice(0,scale*scale/2)
+function generateRandomMatrix(source, height, width) {
+  list = _.shuffle(source).slice(0,height*width/2)
   list = _.shuffle(_.concat(list, list))
-  console.log(list);
-  counter = 0
-  for (a in Array(scale).fill()) {
-    for (b in Array(scale).fill()) {
-      matrix[a][b] = list[counter++]
-    }
-  }
-  console.log(matrix);
-  return matrix
+  return _.chunk(list, width)
 }
 
-// register the grid component
-Vue.component("memory-grid", {
-  template: "#grid-template",
-  props: {
-    matrix: Array,
-  },
-  data: function() {
-    s = {}
-    for(n in this.matrix) {
-      for(k in this.matrix[n]) {
-        id = "item-"+n+"-"+k
-        s[id] = {
-          opacity: 1
-        }
-      }
-    }
-    return {
-      activeItems: [],
-      styles: s,
-      timer: 5,
-      finished: false,
-    }
-  },
-  watch: {
-    matrix: function() {
-      for(style in this.styles) {
-        this.styles[style].opacity = 1
-      }
-      console.log("[DEBUG] matrix changed");
-      this.reset()
-    }
+let app = new Vue({
+  el: "#app",
+  data: {
+    matrix: generateRandomMatrix(EMOJIS, 4, 4),
+    styles: undefined,
+    timer: 5,
+    in: undefined,
+    to: undefined,
+    finished: false,
+    activeItems: []
   },
   created: function() {
     this.reset()
   },
+  watch: {
+    matrix: function() {
+      this.styles = this.matrix.map(arr => arr.map(v => {return {opacity: 1}}))
+      this.reset()
+    }
+  },
   methods: {
     reset: function() {
+      this.styles = this.matrix.map(arr => arr.map(v => {return {opacity: 1}}))
       this.finished = false
       clearInterval(this.in)
       clearTimeout(this.to)
-      this.resetTimer()
-      this.fade()
-    },
-    fade: function() {
       this.to = setTimeout(function() {
-        for(style in this.styles) {
-          this.styles[style].opacity = 0
+        for(n in this.styles) {
+          for(k in this.styles[n]) {
+            this.styles[n][k].opacity = 0
+          }
         }
       }.bind(this), 5000)
-    },
-    resetTimer: function() {
       this.timer = 5
       this.in = setInterval(function() {
         this.timer -= 1;
@@ -81,23 +54,27 @@ Vue.component("memory-grid", {
       }.bind(this), 1000)
     },
     check: function(event) {
-      id = event.target.id
-      if(this.styles[id].opacity !== 1) {
+      let n = event.target.id.split("-")[1]
+      let k = event.target.id.split("-")[2]
+      if(this.styles[n][k].opacity !== 1) {
         if(this.activeItems.length < 2) {
           this.activeItems.push({
-            id: id,
+            n: n,
+            k: k,
             text: event.target.innerText
           })
-          this.styles[id].opacity = 1
+          this.styles[n][k].opacity = 1
         }
       }
       if(this.activeItems.length >= 2) {
         if(this.activeItems[0]['text'] == this.activeItems[1]['text']) {
           this.activeItems = []
-          for(style in this.styles) {
-            if(this.styles[style].opacity == 0) {
-              console.log("[DEBUG] memory unfinished");
-              return
+          for(n in this.styles) {
+            for(k in this.styles[n]) {
+              if(this.styles[n][k].opacity == 0) {
+                console.log("[DEBUG] memory unfinished");
+                return
+              }
             }
           }
           console.log("[DEBUG] memory finished");
@@ -105,24 +82,15 @@ Vue.component("memory-grid", {
         } else {
           setTimeout(function() {
             for(item of this.activeItems) {
-              this.styles[item["id"]].opacity = 0
+              this.styles[item["n"]][item["k"]].opacity = 0
             }
             this.activeItems = []
           }.bind(this), 500)
         }
       }
-    }
-  }
-});
-
-let app = new Vue({
-  el: "#app",
-  data: {
-    memoryMatrix: generateRandomMatrix(EMOJIS, 4),
-  },
-  methods: {
-    changeMatrix: function() {
-      this.memoryMatrix = generateRandomMatrix(EMOJIS, 4)
+    },
+    newMatrix: function() {
+      this.matrix = generateRandomMatrix(EMOJIS, 4, 4)
     }
   }
 });

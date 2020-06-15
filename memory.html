@@ -5,30 +5,25 @@
   <meta charset="utf-8">
   <title>Memory</title>
   <!-- <link rel="stylesheet" href="./css/solve_up.css"> -->
-  <!-- component template -->
-    <script type="text/x-template" id="grid-template">
-      <div>
-        <p>Time until start: {{ timer }}</p>
-        <table>
-          <tbody>
-            <tr v-for="n in matrix.length">
-              <td v-for="k in matrix[n-1].length" style="background: #eee">
-                <div v-bind:style="styles['item-'+(n-1)+'-'+(k-1)]" v-bind:id="'item-' + (n-1) + '-' + (k-1)" @click=check>
-                  {{matrix[n-1][k-1]}}
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p v-if="finished">Memory finished!</p>
-      </div>
-    </script>
 </head>
 
 <body>
   <div id="app">
-    <memory-grid :matrix="memoryMatrix"></memory-grid>
-    <button @click=changeMatrix>Reset[DEBUG]</button>
+    <p>Time until start: {{ timer }}</p>
+    <table>
+      <tbody>
+        <tr v-for="n in matrix.length">
+          <td v-for="k in matrix[n-1].length" style="background: #eee">
+            <div v-bind:style="styles[n-1][k-1]" v-bind:id="'item-' + (n-1) + '-' + (k-1)" @click=check>
+              {{matrix[n-1][k-1]}}
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p v-if="finished">Memory finished!</p>
+    <!-- <memory-grid :matrix="memoryMatrix"></memory-grid> -->
+    <button @click=newMatrix>Reset[DEBUG]</button>
   </div>
 </body>
 <!-- development version, includes helpful console warnings -->
