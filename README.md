@@ -15,7 +15,7 @@ Vue Mind Games is a web application build with vue.js containing several minigam
 |Pick the operator|Math|Pick the right operator of a equation.|❌|
 |What is larger|Math|What is larger/smaller with equations and numbers|❌|
 |See it!|Brain|Pick the right word/color. Depending on task|❌|
-|Memory Matrix|Memory|Starting a matrix with some fields are filled. Matrix resets and goal is to fill all the fields that where filled before.</br>Variation: Filled matrix is shown one by one.|❌|
+|Memory Matrix|Memory|Starting a matrix with some fields are filled. Matrix resets and goal is to fill all the fields that where filled before.</br>Variation: Filled matrix is shown one by one.|🚧|
 |Find the numbers|Brain|Find the counting up numbers as quickly as possible.|❌|
 |Solver Chain 2|Math|Like Solver Chain but with 2 equations side by side|❌|
 |Memory Highlight|Memory|Highlights the possible same fields.|❌|
