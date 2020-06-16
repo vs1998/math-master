@@ -7,7 +7,7 @@ Vue Mind Games is a web application build with vue.js containing several minigam
 |:-|:-|:-|:-|
 |Countdown Solver|Math|Solve as many (easy) math equations in 60 seconds|❌|
 |Solver Chain|Math|A large equations is building up step by step. Goal is to memorize the last numbers and calculate the whole.|❌|
-|Sum it Up|Math|Given is a grid of numbers that need to be summed up as quick as possible. Grid is getting bigger with difficulty|❌|
+|Sum it Up|Math|Given is a grid of numbers that need to be summed up as quick as possible. Grid is getting bigger with difficulty|🚧|
 |Memory|Memory|Simple memory with different cards (with emojis on it)|❌|
 |Solve it!|Math|Given are multiple equations where some numbers are hidden by pictures.|❌|
 |Count the cubes|Brain|Given is a 3d picture of a formation of cubes. Goal is to count the cubes asap.|❌|
