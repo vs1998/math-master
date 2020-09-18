@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Math Master</title>
+
+  <!-- <link rel="stylesheet" href="css/style_solve_up.css"> -->
+</head>
+
+<body>
+  <div id="app">
+    <p>{{ text }}</p>
+    <button v-if="!endGame" @click=go>{{ btnText }}</button>
+    <button v-if="endGame" @click=solve>{{ solutions[0] }}</button>
+    <button v-if="endGame" @click=solve>{{ solutions[1] }}</button>
+    <button v-if="endGame" @click=solve>{{ solutions[2] }}</button>
+    <button v-if="endGame" @click=solve>{{ solutions[3] }}</button>
+  </div>
+</body>
+<!-- development version, includes helpful console warnings -->
+<script src="./js/lodash.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js/solve_up.js"></script>
+</html>
