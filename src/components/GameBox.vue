@@ -1,7 +1,6 @@
 <template>
-  <div class="home">
-    <p>This is the main page</p>
-    <p>Select a game</p>
+  <div>
+    {{gameName}}
   </div>
 </template>
 
@@ -9,9 +8,13 @@
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
+  name: 'GameBox',
   components: {
 
   }
 }
 </script>
+
+<style scoped>
+
+</style>

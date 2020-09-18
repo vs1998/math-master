@@ -1,17 +1,18 @@
 <template>
-  <div class="home">
-    <p>This is the main page</p>
-    <p>Select a game</p>
-  </div>
+  <div></div>
 </template>
 
 <script>
 // @ is an alias to /src
 
 export default {
-  name: 'Home',
+  name: 'CountdownSolver',
   components: {
 
   }
 }
 </script>
+
+<style scoped>
+
+</style>
