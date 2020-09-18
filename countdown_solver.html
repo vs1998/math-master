@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Math Master</title>
+    <script src="./js/countdown_solver.js"></script>
+    <link rel="stylesheet" href="./css/countdown_solver.css">
+  </head>
+  <body>
+    <div class="button" id="retry">
+      <p>Retry</p>
+    </div>
+    <div class="app" id="main-app">
+      <p id="timer"></p>
+      <p id="task"></p>
+
+      <ul id='buttons'>
+        <li><div class="button" id="answer-1">
+          <p></p>
+        </div></li>
+        <li><div class="button" id="answer-2">
+          <p></p>
+        </div></li>
+      </ul>
+      <div class="box">
+        <div class="">
+          <p>Right:</p>
+          <p class="counter" id="r-counter">0</p>
+        </div>
+        <div class="">
+          <p>Wrong:</p>
+          <p class="counter" id="w-counter">0</p>
+        </div>
+      </div>
+      <div class=box>
+        <div class="">
+          <p>Top Score:</p>
+          <p id="record">0</p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="button" id="new-game">
+          <p>New Game</p>
+        </div>
+      </div>
+      <p id=table-text>Wrong decisions:</p>
+      <table id="results">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Choise</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
