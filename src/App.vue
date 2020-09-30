@@ -1,30 +1,46 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="nav-wrapper">
+    <div id="nav">
+      <router-link to="/">🧠</router-link>
+    </div>
   </div>
   <router-view/>
 </template>
 
-<style>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import "./scss/_variables.scss";
+
+html, body {
+  font-family: 'Fira Sans', sans-serif;
+  background-color: $bg-color;
+  color: $font-color;
+  margin: 0;
+  padding: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
-  padding: 30px;
+  top: -10px;
+  padding: 20px;
+  // width: 100%;
+  background-color: $header-bg-color;
 }
 
 #nav a {
+  font-size: 5em;
   font-weight: bold;
-  color: #2c3e50;
+  text-decoration: none;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+#nav-wrapper {
+  display: inline-block;
+  min-width: 100%
 }
 </style>
